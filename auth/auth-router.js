@@ -3,6 +3,7 @@ const bcryptjs = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const router = require("express").Router()
 const helper = require("../router/helper")
+
 router.post("/register", (req, res) => {
   const credentials = req.body
   if (isValid(credentials)) {
