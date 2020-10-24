@@ -10,7 +10,7 @@ router.post("/register", (req, res) => {
     const rounds = process.env.BCRYPT_ROUNDS || 8
     const hash = bcryptjs.hashSync(credentials.password, rounds)
     credentials.password = hash
-    helper.add(credentials)
+    helper.addUser(credentials)
     .then(user => {
       const token = makeJwt(user)
       res.status(201).json({ data: user, token })

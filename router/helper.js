@@ -1,4 +1,5 @@
 const db = require('../data/db-config')
+
 function find(table) {
   return db(table) 
 }
@@ -9,14 +10,16 @@ function findById(id,table) {
 function findBy(filter) {
   return db(users).where(filter).orderBy(id); 
 }
+
+function addUser(user, table) {
+  await db(table).insert(user);
+  return db('users').where({ username: user.username})
+}
 function add(addedObject, table) { 
-  return( 
-    db(table) 
-    .insert(addedObject) 
-    .then( id => {
-      return findById(id[0], table)
-    })
-  )
+  const newCar = addedObject
+  const id = await db('inventory').insert( title, year, make, model, userID)
+  
+  return "Car Added"
 }
 function update(changes, id, table) {
   return db(table) 
@@ -40,6 +43,7 @@ module.exports ={
   find,
   findById,
   findBy,
+  addUser,
   add,
   update,
   remove

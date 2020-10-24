@@ -12,8 +12,7 @@ router.get('/user', (req, res) => {
 
 // get inventory
 router.get('/inventory', (req, res) => {
-  const id = req.params.id
-  helper.find(id, 'TABLE')
+  helper.find('TABLE')
   .then(rez => res.status(200).json(rez))
   .catch(err => res.status(500).json({status: 500, err}))
 })
@@ -34,7 +33,7 @@ router.put('/inventory/:id', (req, res) => {
 })
 
 // remove inventory
-router.delete('/:id', (req, res) => {
+router.delete('/inventory/:id', (req, res) => {
   const id = req.params.id
   helper.remove(id, 'TABLE')
   .then(rez => res.status(200).json(rez))
