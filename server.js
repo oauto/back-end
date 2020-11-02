@@ -15,7 +15,7 @@ server.use(
     })
 )
 server.use("/api/auth", authRouter)
-server.use("/api/users", restricted, usersRouter)
+server.use("/api/admin", restricted, usersRouter)
 server.get("/", (req, res) => {
     res.status(200).json({ Victor_Frankenstein: "Its ALIVE" })
 })

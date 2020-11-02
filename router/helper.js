@@ -17,7 +17,8 @@ function addUser(user, table) {
 }
 function add(addedObject, table) { 
   const newCar = addedObject
-  const id = await db('inventory').insert( title, year, make, model, userID)
+  const id = await db('inventory').insert( owner, year, make, model, carclass, trim, vin, mileage, price, sold)
+  db('details').insert( vin, description, fuel, engine, transmission, driveTrain, a/c, audio, color )
   
   return "Car Added"
 }
